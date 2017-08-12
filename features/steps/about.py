@@ -6,7 +6,7 @@ def step_impl(context):
     br = context.browser
     br.get(context.base_url)
     br.find_element_by_css_selector(
-        'ul>li>a[href$="https://dart-test-stage.raccoongang.com/search/about"]'
+        'ul>li>a[href$="{}/search/about"]'.format(context.base_url)
     ).click()
 
 
