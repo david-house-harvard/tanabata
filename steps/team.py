@@ -55,3 +55,21 @@ def step_impl(context):
     context.browser.find_element_by_css_selector(
         "div>img[src$='/static/search/img/team/eyates.jpg']"
     )
+
+@then('I can see VPAL logo')
+def step_impl(context):
+    context.browser.find_element_by_css_selector(
+        "div>img[src$='/static/search/logo_VPAL.jpg']"
+    )
+
+@then('I can see HUIT logo')
+def step_impl(context):
+    context.browser.find_element_by_css_selector(
+        "div>img[src$='/static/search/logo_HUIT.png']"
+    )
+
+@then('I can see HarvardX logo')
+def step_impl(context):
+    context.browser.find_element_by_css_selector(
+        "div>img[src$='/static/search/logo_HarvardX.png']"
+    )

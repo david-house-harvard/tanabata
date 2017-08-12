@@ -1,6 +1,6 @@
 Feature: About page
 
-  Scenario: Access about page
+  Scenario: Access team page
 
     Given an anonymous user
     When I open team page
@@ -12,3 +12,6 @@ Feature: About page
     Then I can see dtingley foto
     Then I can see sturkay foto
     Then I can see eyates foto
+    Then I can see VPAL logo
+    Then I can see HUIT logo
+    Then I can see HarvardX logo
