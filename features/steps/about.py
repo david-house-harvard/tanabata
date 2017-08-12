@@ -4,8 +4,10 @@ from behave import given, when, then
 @when('I open about page')
 def step_impl(context):
     br = context.browser
-    br.get('https://dart-test-stage.raccoongang.com/')
-    br.find_element_by_css_selector('ul>li>a[href$="https://dart-test-stage.raccoongang.com/search/about"]').click()
+    br.get(context.base_url)
+    br.find_element_by_css_selector(
+        'ul>li>a[href$="https://dart-test-stage.raccoongang.com/search/about"]'
+    ).click()
 
 
 @then('I can see import to canvas LMS image')
@@ -31,11 +33,13 @@ def step_impl(context):
 
     #br.switch_to_window(br.window_handles[0])
 
+
 @then('I can see about_canvas_import_screenshot_indicator.jpg')
 def step_impl(context):
     context.browser.find_element_by_css_selector(
         "div>img[src$='static/search/img/about_canvas_import_screenshot_indicator.jpg']"
     )
+
 
 @then('I can see Harvard_YouTube_ScreenShot.png')
 def step_impl(context):
@@ -43,11 +47,13 @@ def step_impl(context):
         "div>img[src$='static/search/img/Harvard_YouTube_ScreenShot.png']"
     )
 
+
 @then('I can see DART_Ecosystem_Feb_17.png')
 def step_impl(context):
     context.browser.find_element_by_css_selector(
         "div>img[src$='static/search/img/DART_Ecosystem_Feb_17.png']"
     )
+
 
 @then('I can see SVG')
 def step_impl(context):
@@ -67,6 +73,7 @@ def step_impl(context):
 
     br.switch_to_window(br.window_handles[0])
 
+
 @then('I can click on https://edx.readthedocs.io link')
 def step_impl(context):
     br = context.browser
@@ -79,6 +86,7 @@ def step_impl(context):
     assert 'EdX Open Learning XML Guide' in br.page_source
 
     br.switch_to_window(br.window_handles[0])
+
 
 @then('I can click on http://annotation.chs.harvard.edu/ link')
 def step_impl(context):
@@ -93,6 +101,7 @@ def step_impl(context):
 
     br.switch_to_window(br.window_handles[0])
 
+
 @then('I can click on http://vpal.harvard.edu/research link')
 def step_impl(context):
     br = context.browser
@@ -105,6 +114,7 @@ def step_impl(context):
     assert 'The Office of the Vice Provost for Advances in Learning Research Group enables research on how students learn.' in br.page_source
 
     br.switch_to_window(br.window_handles[0])
+
 
 @then('I can click on http://huit.harvard.edu/ link')
 def step_impl(context):
@@ -119,6 +129,7 @@ def step_impl(context):
 
     br.switch_to_window(br.window_handles[0])
 
+
 @then('I can click on http://harvardx.harvard.edu/ link')
 def step_impl(context):
     br = context.browser
@@ -132,6 +143,7 @@ def step_impl(context):
 
     br.switch_to_window(br.window_handles[0])
 
+
 @then('I can click on http://vpal.harvard.edu/research link second')
 def step_impl(context):
     br = context.browser
@@ -144,6 +156,7 @@ def step_impl(context):
     assert 'The Office of the Vice Provost for Advances in Learning Research Group enables research on how students learn' in br.page_source
 
     br.switch_to_window(br.window_handles[0])
+
 
 @then('I can click on http://vpal.harvard.edu/ link')
 def step_impl(context):
