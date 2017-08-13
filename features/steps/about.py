@@ -5,6 +5,8 @@ from behave import given, when, then
 def step_impl(context):
     br = context.browser
     br.get(context.base_url)
+    #br.execute_script("document.body.style.background = 'none'")
+    # context.browser.implicitly_wait(100)
     br.find_element_by_css_selector(
         'ul>li>a[href$="{}/search/about"]'.format(context.base_url)
     ).click()
@@ -36,9 +38,11 @@ def step_impl(context):
 
 @then('I can see about_canvas_import_screenshot_indicator.jpg')
 def step_impl(context):
+    br = context.browser
+    br.execute_script("return (typeof arguments[0].naturalWidth!=\"undefined\" && arguments[0].naturalWidth==0)",
     context.browser.find_element_by_css_selector(
         "div>img[src$='static/search/img/about_canvas_import_screenshot_indicator.jpg']"
-    )
+    ))
 
 
 @then('I can see Harvard_YouTube_ScreenShot.png')
