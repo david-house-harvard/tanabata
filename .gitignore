@@ -3,3 +3,4 @@ phantomjs*
 *driver*
 results.json
 screenshots/
+__pycache__
