@@ -1,2 +1,7 @@
 *.log
 phantomjs*
+*driver*
+results.json
+screenshots/
+__pycache__
+*.pyc
