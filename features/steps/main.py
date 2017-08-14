@@ -42,31 +42,20 @@ def step_impl(context):
     ).click()
 
 
-# @then('I can see dart-logo-link and click on dart-logo-link in header')
-# def step_impl(context):
-#     br = context.browser
-#     br.find_element_by_css_selector(
-#         'ul>li>a[href$="https://s3.amazonaws.com/vpal-static-findability-assets/branding/harvard/images/harvardDART_dark_bac_blue_DART_light.png"]'
-#     ).click()
-#     br.switch_to_window(br.window_handles[-1])
-#     assert 'VPAL Research' in br.page_source
+@then('I can see dart-logo-link and click on dart-logo-link in header')
+def step_impl(context):
+    br = context.browser
+    br.find_element_by_css_selector(
+        'ul>li>a>img[src$="https://s3.amazonaws.com/vpal-static-findability-assets/branding/harvard/images/harvardDART_dark_bac_blue_DART_light.png"]'
+    ).click()
+    assert 'VPAL Research' in br.page_source
 
 
-# @then('I can see Harvard University DART logo in content-wrapper')
-# def step_impl(context):
-#     context.browser.find_element_by_css_selector(
-#         "div>img[src$='https://s3.amazonaws.com/vpal-static-findability-assets/branding/harvard/images/harvardDART_light_bac.png']"
-#     )
-
-
-# @then('I can type in HomeSearch field in content-wrapper')
-# def step_impl(context):
-#     pass
-
-
-# @then('I can click on search button in content-wrapper')
-# def step_impl(context):
-#     pass
+@then('I can see Harvard University DART logo in content-wrapper')
+def step_impl(context):
+    context.browser.find_element_by_css_selector(
+        "div>img[src$='https://s3.amazonaws.com/vpal-static-findability-assets/branding/harvard/images/harvardDART_light_bac.png']"
+    )
 
 
 @then('I can see harvard-logo in footer')
@@ -107,3 +96,13 @@ def step_impl(context):
     br.switch_to_window(br.window_handles[-1])
     assert 'Copyright Issue' in br.page_source
     br.switch_to_window(br.window_handles[0])
+
+
+# @then('I can type in HomeSearch field in content-wrapper')
+# def step_impl(context):
+#     pass
+
+
+# @then('I can click on search button in content-wrapper')
+# def step_impl(context):
+#     pass
