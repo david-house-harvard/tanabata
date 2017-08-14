@@ -14,30 +14,6 @@ def step_impl(context):
     ).click()
 
 
-@then('I can see import to canvas LMS image')
-def step_impl(context):
-    br = context.browser
-
-    # TODO distinguish same links
-    #br.find_element_by_css_selector(
-    #    'div>p>a[href$="http://huit.harvard.edu/"]'
-    #).click()
-
-    #br.switch_to_window(br.window_handles[-1])
-    #assert 'Wait! Have you checked the new IT HELP site?' in br.page_source
-
-    #br.switch_to_window(br.window_handles[0])
-
-    #br.find_element_by_css_selector(
-    #    'div>p>a[href$="http://harvardx.harvard.edu/"]'
-    #).click()
-
-    #br.switch_to_window(br.window_handles[-1])
-    #assert 'Office of the Vice Provost for Advances In Learning' in br.page_source
-
-    #br.switch_to_window(br.window_handles[0])
-
-
 @then('I can see about_canvas_import_screenshot_indicator.jpg')
 def step_impl(context):
     assert_has_width(
@@ -135,6 +111,20 @@ def step_impl(context):
 
     br.find_element_by_css_selector(
         'div>p>a[href$="http://huit.harvard.edu/"]'
+    ).click()
+
+    br.switch_to_window(br.window_handles[-1])
+    assert 'Wait! Have you checked the new IT HELP site?' in br.page_source
+
+    br.switch_to_window(br.window_handles[0])
+
+
+@then('I can click on http://huit.harvard.edu/ link second')
+def step_impl(context):
+    br = context.browser
+
+    br.find_element_by_css_selector(
+       'div>p>a[href$="http://huit.harvard.edu/"][title$="HUIT web site"]'
     ).click()
 
     br.switch_to_window(br.window_handles[-1])
