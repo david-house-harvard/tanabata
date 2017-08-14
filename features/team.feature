@@ -1,8 +1,8 @@
-Feature: About page
+Feature: Team page
 
   Scenario: Access team page
 
-    Given an anonymous user
+    Given I an anonymous user
     When I open team page
     Then I can see "aang" foto
     Then I can see "vbucchieri" foto
