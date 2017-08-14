@@ -2,7 +2,7 @@ Feature: Team page
 
   Scenario: Access team page
 
-    Given I an anonymous user
+    Given an anonymous user
     When I open team page
     Then I can see "aang" foto
     Then I can see "vbucchieri" foto

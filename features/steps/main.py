@@ -98,11 +98,26 @@ def step_impl(context):
     br.switch_to_window(br.window_handles[0])
 
 
-# @then('I can type in HomeSearch field in content-wrapper')
-# def step_impl(context):
-#     pass
+@then('I can type in HomeSearch field in content-wrapper')
+def step_impl(context):
+    context.browser.find_element_by_name('query').send_keys('moon')
 
 
-# @then('I can click on search button in content-wrapper')
-# def step_impl(context):
-#     pass
+@then('I can click on search button in content-wrapper')
+def step_impl(context):
+    context.browser.find_element_by_css_selector('.btn').click()
+
+
+@then('I can see search results')
+def step_impl(context):
+    assert 'View and filter all' in context.browser.page_source
+
+
+@then('I can click on Browse link')
+def step_impl(context):
+    context.browser.find_element_by_css_selector('[title="DART Browse"]').click()
+
+
+@then('I can see DART catalog')
+def step_impl(context):
+    assert 'The DART catalog currently includes' in context.browser.page_source
