@@ -4,3 +4,4 @@ phantomjs*
 results.json
 screenshots/
 __pycache__
+*.pyc
