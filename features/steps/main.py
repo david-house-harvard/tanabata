@@ -14,7 +14,7 @@ def step_impl(context):
         "harvard-logo-container"
     ).click()
     br.switch_to_window(br.window_handles[-1])
-    assert 'Gauging the bias of lawyers' in br.page_source
+    assert 'Harvard University is devoted to excellence in teaching' in br.page_source
     br.switch_to_window(br.window_handles[0])
 
 
