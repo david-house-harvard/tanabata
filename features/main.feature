@@ -7,7 +7,6 @@ Feature: Main page
     Then I can see harvard-logo-container and click on harvard-logo-container
     Then I can click on an About in header
     Then I can click on a Team in header
-    Then I can click on a Coming Soon in header
     Then I can see harvard-logo in footer
     Then I can click on a Privacy
     Then I can click on an Accessibility

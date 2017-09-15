@@ -34,12 +34,12 @@ def step_impl(context):
     ).click()
 
 
-@then('I can click on a Coming Soon in header')
-def step_impl(context):
-    br = context.browser
-    br.find_element_by_css_selector(
-        'ul>li>a[href$="#"]'
-    ).click()
+# @then('I can click on a Coming Soon in header')
+# def step_impl(context):
+#     br = context.browser
+#     br.find_element_by_css_selector(
+#         'ul>li>a[href$="#"]'
+#     ).click()
 
 
 @then('I can see dart-logo-link and click on dart-logo-link in header')
