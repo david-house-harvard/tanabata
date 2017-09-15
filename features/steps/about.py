@@ -14,12 +14,12 @@ def step_impl(context):
     ).click()
 
 
-@then('I can see about_canvas_import_screenshot_indicator.jpg')
+@then('I can see about_canvas_import_screenshot_indicator.png')
 def step_impl(context):
     assert_has_width(
         context.browser,
         context.browser.find_element_by_css_selector(
-            "div>img[src$='static/search/img/about_canvas_import_screenshot_indicator.jpg']"
+            "div>img[src$='static/search/img/about_canvas_import_screenshot_indicator.png']"
         )
     )
 
@@ -114,7 +114,7 @@ def step_impl(context):
     ).click()
 
     br.switch_to_window(br.window_handles[-1])
-    assert 'Wait! Have you checked the new IT HELP site?' in br.page_source
+    assert 'Got IT Questions?' in br.page_source
 
     br.switch_to_window(br.window_handles[0])
 
@@ -128,7 +128,7 @@ def step_impl(context):
     ).click()
 
     br.switch_to_window(br.window_handles[-1])
-    assert 'Wait! Have you checked the new IT HELP site?' in br.page_source
+    assert 'Got IT Questions?' in br.page_source
 
     br.switch_to_window(br.window_handles[0])
 

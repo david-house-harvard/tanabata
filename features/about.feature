@@ -4,7 +4,7 @@ Feature: About page
 
     Given an anonymous user
     When I open about page
-    Then I can see about_canvas_import_screenshot_indicator.jpg
+    Then I can see about_canvas_import_screenshot_indicator.png
     Then I can see Harvard_YouTube_ScreenShot.png
     Then I can see DART_Ecosystem_Feb_17.png
     Then I can see SVG
