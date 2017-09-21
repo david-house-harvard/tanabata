@@ -22,3 +22,6 @@ safari:
 love:
 	make chrome
 	make firefox
+
+docker:
+	behave -D instance_url=${stage_url} -D browser=phantomjs -D docker

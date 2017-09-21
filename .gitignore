@@ -5,3 +5,4 @@ results.json
 screenshots/
 __pycache__
 *.pyc
+envs/local.env

@@ -1,6 +1,7 @@
 import os
 
 from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 BEHAVE_DEBUG_ON_ERROR = True
 
@@ -26,7 +27,13 @@ def before_scenario(context, scenario):
     elif browser == 'opera':
         context.browser = webdriver.Opera()
     elif browser == 'phantomjs':
-        context.browser = webdriver.PhantomJS()
+        if 'docker' in context.config.userdata.keys():
+            context.browser = webdriver.Remote(
+                command_executor='http://phantomjs:8910',
+                desired_capabilities=DesiredCapabilities.PHANTOMJS
+            )
+        else:
+            context.browser = webdriver.PhantomJS()
     else:
         print("Browser you entered:", browser, "is invalid value")
 

@@ -1,0 +1,9 @@
+FROM python:3.6-alpine3.6
+MAINTAINER maksim.sokolskiy@raccoongang.com
+ENV PYTHONUNBUFFERED 1
+RUN  apk update && apk add alpine-sdk
+RUN mkdir /tanabata
+WORKDIR /tanabata
+CMD find . -name '*.pyc' -delete
+ADD . /tanabata/
+RUN pip install -r requirements.txt
