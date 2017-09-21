@@ -1,5 +1,7 @@
-from behave import given, when, then
+import requests
 
+from behave import given, when, then
+from selenium import webdriver
 from utils.common import assert_has_width
 
 
@@ -57,8 +59,8 @@ def step_impl(context):
         'div>h4>a[href$="https://harvard.az1.qualtrics.com/jfe/form/SV_d3VpcAXlAPW4dMh"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Thank you for your interest in being a DART Canvas Beta Tester' in br.page_source
+    r = requests.get("https://harvard.az1.qualtrics.com/jfe/form/SV_d3VpcAXlAPW4dMh")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])
 
@@ -71,8 +73,8 @@ def step_impl(context):
         'div>p>a[href$="https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'EdX Open Learning XML Guide' in br.page_source
+    r = requests.get("https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])
 
@@ -85,8 +87,8 @@ def step_impl(context):
         'div>p>a[href$="http://annotation.chs.harvard.edu/"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Annotation Tools for Teaching, Learning and Research' in br.page_source
+    r = requests.get("http://annotation.chs.harvard.edu/")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])
 
@@ -99,8 +101,8 @@ def step_impl(context):
         'div>p>a[href$="http://vpal.harvard.edu/research"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'The Office of the Vice Provost for Advances in Learning Research Group enables research on how students learn.' in br.page_source
+    r = requests.get("http://vpal.harvard.edu/research")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])
 
@@ -113,8 +115,8 @@ def step_impl(context):
         'div>p>a[href$="http://huit.harvard.edu/"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Got IT Questions?' in br.page_source
+    r = requests.get("http://huit.harvard.edu/")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])
 
@@ -127,8 +129,8 @@ def step_impl(context):
        'div>p>a[href$="http://huit.harvard.edu/"][title$="HUIT web site"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Got IT Questions?' in br.page_source
+    r = requests.get("http://huit.harvard.edu/")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])
 
@@ -141,8 +143,8 @@ def step_impl(context):
         'div>p>a[href$="http://harvardx.harvard.edu/"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Office of the Vice Provost for Advances In Learning' in br.page_source
+    r = requests.get("http://harvardx.harvard.edu/")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])
 
@@ -155,8 +157,8 @@ def step_impl(context):
         'div>p>a[href$="http://vpal.harvard.edu/research"][title$="Information on the Advances in Learning Research Group"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'The Office of the Vice Provost for Advances in Learning Research Group enables research on how students learn' in br.page_source
+    r = requests.get("http://vpal.harvard.edu/research")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])
 
@@ -169,7 +171,7 @@ def step_impl(context):
         'div>p>a[href$="http://vpal.harvard.edu/"]'
     ).click()
 
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Launched through a generous gift from Gustave and Rita Hauser' in br.page_source
+    r = requests.get("http://vpal.harvard.edu")
+    assert r.status_code == 200
 
     br.switch_to_window(br.window_handles[0])

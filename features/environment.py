@@ -2,6 +2,7 @@ import os
 
 from selenium import webdriver
 
+BEHAVE_DEBUG_ON_ERROR = True
 
 def before_scenario(context, scenario):
     if 'browser' in context.config.userdata.keys():
@@ -16,6 +17,8 @@ def before_scenario(context, scenario):
         context.browser = webdriver.Chrome()
     elif browser == 'firefox':
         context.browser = webdriver.Firefox()
+    elif browser == 'edge':
+        context.browser = webdriver.Edge()
     elif browser == 'safari':
         context.browser = webdriver.Safari()
     elif browser == 'ie':
@@ -41,3 +44,8 @@ def after_scenario(context, scenario):
         context.browser.save_screenshot(scenario.name + "_failed.png")
 
     context.browser.quit()
+
+def after_step(context, step):
+    if BEHAVE_DEBUG_ON_ERROR and step.status == "failed":
+        import pdb
+        pdb.post_mortem(step.exc_traceback)
