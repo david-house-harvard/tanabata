@@ -1,5 +1,8 @@
-from behave import given, when, then
+import requests
 
+from behave import given, when, then
+from selenium import webdriver
+from utils.common import assert_has_width
 
 @when('I open main page')
 def step_impl(context):
@@ -13,8 +16,9 @@ def step_impl(context):
     br.find_element_by_id(
         "harvard-logo-container"
     ).click()
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Harvard University is devoted to excellence in teaching' in br.page_source
+    r = requests.get("https://www.harvard.edu/")
+    assert r.status_code == 200
+
     br.switch_to_window(br.window_handles[0])
 
 
@@ -48,7 +52,8 @@ def step_impl(context):
     br.find_element_by_css_selector(
         'ul>li>a>img[src$="https://s3.amazonaws.com/vpal-static-findability-assets/branding/harvard/images/harvardDART_dark_bac_blue_DART_light.png"]'
     ).click()
-    assert 'VPAL Research' in br.page_source
+    r = requests.get("https://dart-test-stage.raccoongang.com/search/")
+    assert r.status_code == 200
 
 
 @then('I can see Harvard University DART logo in content-wrapper')
@@ -71,8 +76,8 @@ def step_impl(context):
     br.find_element_by_css_selector(
         'div>p>a[href$="http://www.harvard.edu/privacy-statement"]'
     ).click()
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Privacy Statement' in br.page_source
+    r = requests.get("http://www.harvard.edu/privacy-statement")
+    assert r.status_code == 200
     br.switch_to_window(br.window_handles[0])
 
 
@@ -82,8 +87,8 @@ def step_impl(context):
     br.find_element_by_css_selector(
         'div>p>a[href$="http://accessibility.harvard.edu/"]'
     ).click()
-    br.switch_to_window(br.window_handles[-1])
-    assert 'University Disability Services' in br.page_source
+    r = requests.get("http://accessibility.harvard.edu/")
+    assert r.status_code == 200
     br.switch_to_window(br.window_handles[0])
 
 
@@ -93,8 +98,8 @@ def step_impl(context):
     br.find_element_by_css_selector(
         'div>p>a[href$="http://www.harvard.edu/reporting-copyright-infringements"]'
     ).click()
-    br.switch_to_window(br.window_handles[-1])
-    assert 'Copyright Issue' in br.page_source
+    r = requests.get("https://www.harvard.edu/copyright-issue")
+    assert r.status_code == 200
     br.switch_to_window(br.window_handles[0])
 
 

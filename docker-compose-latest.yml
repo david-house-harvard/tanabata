@@ -1,0 +1,12 @@
+version: '2'
+services:
+  tanabata:
+    container_name: tanabata
+    image: maxsocl/tanabata:latest
+    command: "make docker"
+    env_file: ./envs/local.env
+    links:
+      - phantomjs
+  phantomjs:
+    image: wernight/phantomjs:latest
+    command: phantomjs --wd

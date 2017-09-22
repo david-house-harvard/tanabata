@@ -1,0 +1,16 @@
+version: '2'
+services:
+  tanabata:
+    container_name: tanabata
+    env_file: ./envs/local.env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "make docker"
+    volumes:
+      - .:/tanabata
+    links:
+      - phantomjs
+  phantomjs:
+    image: wernight/phantomjs:latest
+    command: phantomjs --wd

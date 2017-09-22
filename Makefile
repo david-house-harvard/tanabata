@@ -1,2 +1,27 @@
+firefox:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=firefox
+
+chrome:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=chrome
+
+ie:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=ie
+
+edge:
+		behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=edge
+
+phantomjs:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=phantomjs
+
+opera:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=opera
+
+safari:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=safari
+
 love:
-	behave -D instance_url=https://dart-test-stage.raccoongang.com
+	make chrome
+	make firefox
+
+docker:
+	behave -D instance_url=${STAGE_URL} -D browser=phantomjs -D docker
