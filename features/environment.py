@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 BEHAVE_DEBUG_ON_ERROR = True
+WAIT = os.getenv('WAIT', 1)
 
 def before_scenario(context, scenario):
     if 'browser' in context.config.userdata.keys():
@@ -37,7 +38,7 @@ def before_scenario(context, scenario):
     else:
         print("Browser you entered:", browser, "is invalid value")
 
-    context.browser.implicitly_wait(1)
+    context.browser.implicitly_wait(WAIT)
     context.browser.maximize_window()
 
     context.base_url = context.config.userdata.get('instance_url')

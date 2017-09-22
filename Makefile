@@ -24,4 +24,4 @@ love:
 	make firefox
 
 docker:
-	behave -D instance_url=${stage_url} -D browser=phantomjs -D docker
+	behave -D instance_url=${STAGE_URL} -D browser=phantomjs -D docker
