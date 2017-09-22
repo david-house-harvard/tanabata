@@ -3,7 +3,7 @@ services:
   tanabata:
     container_name: tanabata
     image: maxsocl/tanabata:latest
-    command: "make docker"
+    command: sh run.sh
     env_file: ./envs/local.env
     links:
       - phantomjs
