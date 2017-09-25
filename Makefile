@@ -1,27 +1,30 @@
-firefox:
-	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=firefox
+dart_firefox:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=firefox projects/dart/features
 
-chrome:
-	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=chrome
+dart_chrome:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=chrome projects/dart/features
 
-ie:
-	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=ie
+dart_ie:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=ie projects/dart/features
 
-edge:
-		behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=edge
+dart_edge:
+		behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=edge projects/dart/features
 
-phantomjs:
-	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=phantomjs
+dart_phantomjs:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=phantomjs projects/dart/features
 
-opera:
-	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=opera
+dart_opera:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=opera projects/dart/features
 
-safari:
-	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=safari
+dart_safari:
+	behave -D instance_url=https://dart-test-stage.raccoongang.com -D browser=safari projects/dart/features
 
-love:
-	make chrome
-	make firefox
+dart:
+	make dart_chrome
+	make dart_firefox
 
-docker:
-	behave -D instance_url=${STAGE_URL} -D browser=phantomjs -D docker
+dart_docker:
+	behave -D instance_url=${STAGE_URL} -D browser=phantomjs -D docker projects/dart/features
+
+courselets_docker:
+	behave -D instance_url=${STAGE_URL} -D browser=phantomjs -D docker projects/courselets/features

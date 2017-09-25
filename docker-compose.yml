@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: "make docker"
+    command: sh run.sh
     volumes:
       - .:/tanabata
     links:
