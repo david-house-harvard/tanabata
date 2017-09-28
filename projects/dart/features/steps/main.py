@@ -1,8 +1,10 @@
 import requests
-
 from behave import given, when, then
 from selenium import webdriver
+
 from utils.common import assert_has_width
+from pages import MainPage
+
 
 @when('I open main page')
 def step_impl(context):
@@ -103,14 +105,9 @@ def step_impl(context):
     br.switch_to_window(br.window_handles[0])
 
 
-@then('I can type in HomeSearch field in content-wrapper')
+@then('I can do search on main page')
 def step_impl(context):
-    context.browser.find_element_by_name('query').send_keys('moon')
-
-
-@then('I can click on search button in content-wrapper')
-def step_impl(context):
-    context.browser.find_element_by_css_selector('.btn').click()
+    MainPage(context).do_search(key='moon')
 
 
 @then('I can see search results')
@@ -120,7 +117,7 @@ def step_impl(context):
 
 @then('I can click on Browse link')
 def step_impl(context):
-    context.browser.find_element_by_css_selector('[title="DART Browse"]').click()
+    MainPage(context).go_browse()
 
 
 @then('I can see DART catalog')

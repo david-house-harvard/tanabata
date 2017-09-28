@@ -3,8 +3,10 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+
 BEHAVE_DEBUG_ON_ERROR = True
 WAIT = os.getenv('WAIT', 1)
+
 
 def before_scenario(context, scenario):
     if 'browser' in context.config.userdata.keys():

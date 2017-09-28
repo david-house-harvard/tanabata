@@ -19,8 +19,7 @@ Feature: Main page
 
     Given an logged in user
     When I open main page
-    Then I can type in HomeSearch field in content-wrapper
-    Then I can click on search button in content-wrapper
+    Then I can do search on main page
     Then I can see search results
 
 
@@ -28,8 +27,7 @@ Feature: Main page
 
     Given an anonymous user
     When I open main page
-    Then I can type in HomeSearch field in content-wrapper
-    Then I can click on search button in content-wrapper
+    Then I can do search on main page
     Then I am redirected to the login page
 
 
