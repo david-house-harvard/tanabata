@@ -28,3 +28,7 @@ dart_docker:
 
 courselets_docker:
 	behave -D instance_url=${STAGE_URL} -D browser=phantomjs -D docker projects/courselets/features
+
+
+dart_firefox_local:
+	behave -D instance_url=http://localhost:8001 -D browser=firefox projects/dart/features
