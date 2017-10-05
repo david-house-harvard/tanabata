@@ -34,11 +34,3 @@ To run pre-builded image with a latest code run next:
 
 
     docker-compose -f docker-compose-latest.yml up tanabata
-
-
-TODO
-===
-
-* Generalize to be able to create and run non BDD cases
-* Utilize PageObject pattern
-* Make arch for different projects

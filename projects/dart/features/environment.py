@@ -2,9 +2,15 @@ import os
 
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.microsoft import EdgeDriverManager, IEDriverManager
+from webdriver_manager.phantomjs import PhantomJsDriverManager
+
 
 BEHAVE_DEBUG_ON_ERROR = True
 WAIT = os.getenv('WAIT', 1)
+
 
 def before_scenario(context, scenario):
     if 'browser' in context.config.userdata.keys():
@@ -16,15 +22,15 @@ def before_scenario(context, scenario):
         browser = 'chrome'
 
     if browser == 'chrome':
-        context.browser = webdriver.Chrome()
+        context.browser = webdriver.Chrome(ChromeDriverManager().install())
     elif browser == 'firefox':
-        context.browser = webdriver.Firefox()
+        context.browser = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     elif browser == 'edge':
-        context.browser = webdriver.Edge()
+        context.browser = webdriver.Edge(EdgeDriverManager().install())
     elif browser == 'safari':
         context.browser = webdriver.Safari()
     elif browser == 'ie':
-        context.browser = webdriver.Ie()
+        context.browser = webdriver.Ie(IEDriverManager().install())
     elif browser == 'opera':
         context.browser = webdriver.Opera()
     elif browser == 'phantomjs':
@@ -34,7 +40,7 @@ def before_scenario(context, scenario):
                 desired_capabilities=DesiredCapabilities.PHANTOMJS
             )
         else:
-            context.browser = webdriver.PhantomJS()
+            context.browser = webdriver.PhantomJS(PhantomJsDriverManager().install())
     else:
         print("Browser you entered:", browser, "is invalid value")
 

@@ -1,7 +1,7 @@
 import requests
-
 from behave import given, when, then
 from selenium import webdriver
+
 from utils.common import assert_has_width
 
 
