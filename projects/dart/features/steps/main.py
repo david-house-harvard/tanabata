@@ -8,8 +8,7 @@ from pages import MainPage
 
 @when('I open main page')
 def step_impl(context):
-    br = context.browser
-    br.get(context.base_url)
+    context.browser.get(context.base_url)
 
 
 @then('I can see harvard-logo and click on harvard-logo')

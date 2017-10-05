@@ -1,14 +1,12 @@
 """
 Main PageObject class.
 """
+from .common_page import CommonPage
 
-class MainPage:
+class MainPage(CommonPage):
     """
     Main Page implementation.
     """
-    def __init__(self, context):
-        self.browser = context.browser
-
     def do_search(self, key):
         """
         Fill search field with a key.
@@ -21,17 +19,3 @@ class MainPage:
 
     def go_search(self):
         self.browser.find_element_by_css_selector('[title="DART Search"]').click()
-
-    def find(self, attr_name):
-        el = self.browser.find_element_by_css_selector(
-            '[data-test="{}"]'.format(attr_name)
-        )
-        return el
-
-    def click(self, attr_name):
-        """
-        attr_name: data-test attribute
-        """
-        el = self.find(attr_name)
-        el.click()
-        return el
