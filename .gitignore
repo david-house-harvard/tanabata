@@ -6,3 +6,8 @@ screenshots/
 __pycache__
 *.pyc
 envs/local.env
+.idea/misc.xml
+.idea/modules.xml
+.idea/tanabata.iml
+.idea/vcs.xml
+.idea/workspace.xml
