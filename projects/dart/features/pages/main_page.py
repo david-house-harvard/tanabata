@@ -19,3 +19,6 @@ class MainPage(CommonPage):
 
     def go_search(self):
         self.browser.find_element_by_css_selector('[title="DART Search"]').click()
+
+    def go_team(self):
+        self.browser.find_element_by_css_selector('[title="The DART team"]').click()
