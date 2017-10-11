@@ -22,3 +22,4 @@ def step_impl(context, logo_name, logo_type):
     context.browser.find_element_by_css_selector(
         "div>img[src$='/static/search/logo_{}.{}']".format(logo_name, logo_type)
     )
+
