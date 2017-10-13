@@ -1,25 +1,27 @@
 from behave import given, when, then
+from pages import MainPage, TeamPage
 
 
-@when('I open team page')
+@given ('an anonymous user')
+@when ('I open team page')
 def step_impl(context):
-    br = context.browser
-    br.get(context.base_url)
-    br.find_element_by_css_selector(
-        'ul>li>a[href$="{}/search/team"]'.format(context.base_url)
-    ).click()
+    MainPage(context).go_team()
 
 
-@then('I can see "{member}" foto')
-def step_impl(context, member):
-    context.browser.find_element_by_css_selector(
-        "div>img[src$='/static/search/img/team/{}.jpg']".format(member)
-    )
+@then ('I can see four sections')
+def step_impl(context):
+    TeamPage(context).check_sections()
+
+@then ('I can see Vpal team section')
+def step_impl(context):
+    TeamPage(context).check_sections()
 
 
-@then('I can see logo "{logo_name}" with type "{logo_type}"')
-def step_impl(context, logo_name, logo_type):
-    context.browser.find_element_by_css_selector(
-        "div>img[src$='/static/search/logo_{}.{}']".format(logo_name, logo_type)
-    )
+@then('I can see logo VPAL')
+def step_impl(context):
+    TeamPage(context).check_logo_vpal()
 
+
+@then('I can see aang foto')
+def step_impl(context):
+    TeamPage(context).check_aang_photo()

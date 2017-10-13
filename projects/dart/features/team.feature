@@ -4,6 +4,7 @@ Feature: Team page
 
     Given an anonymous user
     When I open team page
+    Then I can see four sections
     Then I can see Vpal team section
       And I can see logo VPAL
       And I can see aang foto
