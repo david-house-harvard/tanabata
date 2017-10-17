@@ -11,9 +11,10 @@ def step_impl(context):
 def step_impl(context):
     TeamPage(context).check_sections()
 
+
 @then ('I can see Vpal team section')
 def step_impl(context):
-    TeamPage(context).check_sections()
+    TeamPage(context).check_vpal()
 
 
 @then('I can see logo VPAL')
