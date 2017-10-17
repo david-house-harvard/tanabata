@@ -32,7 +32,6 @@ class TeamPage(CommonPage):
 
     def check_logo_vpal(self):
         self.check_elements(attr_name='logo-VPAL')
-
     def check_sections(self):
         if self.check_elements(attr_name='team-section'):
             elements = self.find_all(attr_name='team-section')
