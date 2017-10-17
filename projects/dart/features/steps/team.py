@@ -2,7 +2,6 @@ from behave import given, when, then
 from pages import MainPage, TeamPage
 
 
-@given ('an anonymous user')
 @when ('I open team page')
 def step_impl(context):
     MainPage(context).go_team()

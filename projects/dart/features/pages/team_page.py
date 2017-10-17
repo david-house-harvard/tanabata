@@ -1,9 +1,9 @@
 """
 TeamPage implementation.
 """
-from selenium.common.exceptions import NoSuchElementException
 
 from .common_page import CommonPage
+
 
 class TeamPage(CommonPage):
     def check_elements(self, attr_name):
@@ -23,7 +23,7 @@ class TeamPage(CommonPage):
     def check_sections(self):
         if self.check_elements(attr_name='team-section'):
             elements = self.find_all(attr_name='team-section')
-        assert len(elements) == 4
+            assert len(elements) == 4
 
     def check_vpal(self):
         elements = self.find_all(attr_name='team-section')
@@ -42,5 +42,5 @@ class TeamPage(CommonPage):
         assert elements[3]
 
     def check_aang_photo(self):
-        self.find(attr_name=)
+        self.find(attr_name='team-member-image-aang')
 
