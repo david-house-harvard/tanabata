@@ -40,8 +40,9 @@ class TeamPage(CommonPage):
 
     def check_link(self, link_name):
         el = self.find(attr_name=link_name)
+        link = el.get_attribute('href')
+        r = requests.get(link)
         el.click()
-        r = requests.get(el.get_attribute('src'))
         assert r.status_code == 200
 
         self.browser.switch_to_window(self.browser.window_handles[0])
