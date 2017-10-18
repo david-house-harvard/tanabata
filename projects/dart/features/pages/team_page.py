@@ -19,14 +19,20 @@ class TeamPage(CommonPage):
 
     def check_photo(self, username):
         el = self.find(attr_name=username)
-        self.browser.is_displayed(el)
-        r = requests.get(el.get_attribute("src"))
-        everything_is_ok = r.status_code == 200 and el.value_of_css_property('opacity') > 0 and el.size.height > 10
-        assert everything_is_ok
+        r = requests.get(el.get_attribute('src'))
+        assert r.status_code == 200
+        assert el.value_of_css_property('opacity') > 0
+        assert el.size['height'] > 10
 
     def check_svg(self, username):
         el = self.find(attr_name=username)
-        self.browser.is_displayed(el)
-        everything_is_ok = el.value_of_css_property('opacity') > 0 and el.size.height > 5
-        assert everything_is_ok
+        assert el.value_of_css_property('opacity') > 0
+        assert el.size['height'] > 5
 
+    def check_link(self, link_name):
+        el = self.find(attr_name=link_name)
+        el.click()
+        r = requests.get(el.get_attribute('src'))
+        assert r.status_code == 200
+
+        self.browser.switch_to_window(self.browser.window_handles[0])

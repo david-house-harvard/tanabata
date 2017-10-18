@@ -3,7 +3,8 @@ Feature: Team page
   Scenario: Access team page
 
     Given an anonymous user
-    When I open team page
+    When I go to main page
+    Then I open team page
     Then I can see four sections
       And I can see all cards have names
       And I can see logo VPAL
@@ -17,4 +18,4 @@ Feature: Team page
       And I can see eyates foto
       And I can see jmclaus logo
       And I can see raccoongang logo
-
+      And I can click on raccoongang link

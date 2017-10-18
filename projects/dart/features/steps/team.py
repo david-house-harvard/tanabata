@@ -2,7 +2,12 @@ from behave import given, when, then
 from pages import MainPage, TeamPage
 
 
-@when ('I open team page')
+@when('I go to main page')
+def step_impl(context):
+    context.browser.get(context.base_url)
+
+
+@then ('I open team page')
 def step_impl(context):
     MainPage(context).go_team()
 
@@ -24,7 +29,7 @@ def step_impl(context):
 
 @then('I can see logo VPAL')
 def step_impl(context):
-    TeamPage(context).check_photo('logo-vpal')
+    TeamPage(context).check_photo('logo-VPAL')
 
 
 @then('I can see aang foto')
@@ -54,6 +59,11 @@ def step_impl(context):
 
 @then('I can see pmcgachey foto')
 def step_impl(context):
+    TeamPage(context).check_photo('pmcgachey')
+
+
+@then('I can see vbucchieri foto')
+def step_impl(context):
     TeamPage(context).check_photo('vbucchieri')
 
 
@@ -68,3 +78,7 @@ def step_impl(context):
 @then('I can see raccoongang logo')
 def step_impl(context):
     TeamPage(context).check_svg('raccoongang')
+
+@then('I can click on raccoongang link')
+def step_impl(context):
+    TeamPage(context).check_link('raccoongang-link')
