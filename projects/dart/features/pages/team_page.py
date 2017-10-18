@@ -2,11 +2,20 @@
 TeamPage implementation.
 """
 import requests
+
 from .common_page import CommonPage
 
 
 class TeamPage(CommonPage):
     def check_elements(self, attr_name):
+        """
+                Check that all cards includes some tag (ex. name).
+
+                Extended description of function.
+
+                'team-member-card' (str): data attribute for each card on team page
+                attr_name (str): Data attribute to check that card contains
+            """
         elements = self.find_all(attr_name=attr_name)
         all_elements = self.find_all(attr_name='team-member-card')
         assert len(elements) == len(all_elements)
@@ -14,8 +23,8 @@ class TeamPage(CommonPage):
     def check_names(self):
         self.check_elements(attr_name='team-member-name')
 
-    def check_sections(self):
-        assert len(self.find_all(attr_name='team-section')) == 4
+    def check_section(self, name):
+        assert self.find(attr_name=name)
 
     def check_photo(self, username):
         el = self.find(attr_name=username)

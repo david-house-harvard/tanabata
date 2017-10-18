@@ -1,9 +1,6 @@
 import requests
 from behave import given, when, then
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 
 from utils.common import assert_has_width
 
