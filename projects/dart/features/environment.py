@@ -22,7 +22,19 @@ def before_scenario(context, scenario):
         browser = 'chrome'
 
     if browser == 'chrome':
-        context.browser = webdriver.Chrome(ChromeDriverManager().install())
+        if 'docker' in context.config.userdata.keys():
+            from pyvirtualdisplay import Display
+            display = Display(visible=0, size=(1200, 600))
+            display.start()
+            options = webdriver.ChromeOptions()
+            options.add_argument('headless')
+            options.add_argument('window-size=1200x600')
+            options.add_argument('--no-sandbox')
+            context.browser = webdriver.Chrome(chrome_options=options)
+            global BEHAVE_DEBUG_ON_ERROR
+            BEHAVE_DEBUG_ON_ERROR = False
+        else:
+            context.browser = webdriver.Chrome(ChromeDriverManager().install())
     elif browser == 'firefox':
         context.browser = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     elif browser == 'edge':
@@ -34,13 +46,7 @@ def before_scenario(context, scenario):
     elif browser == 'opera':
         context.browser = webdriver.Opera()
     elif browser == 'phantomjs':
-        if 'docker' in context.config.userdata.keys():
-            context.browser = webdriver.Remote(
-                command_executor='http://phantomjs:8910',
-                desired_capabilities=DesiredCapabilities.PHANTOMJS
-            )
-        else:
-            context.browser = webdriver.PhantomJS(PhantomJsDriverManager().install())
+        context.browser = webdriver.PhantomJS(PhantomJsDriverManager().install())
     else:
         print("Browser you entered:", browser, "is invalid value")
 

@@ -24,10 +24,10 @@ dart:
 	make dart_firefox
 
 dart_docker:
-	behave -D instance_url=${STAGE_URL} -D browser=phantomjs -D docker projects/dart/features
+	behave -D instance_url=${STAGE_URL} -D docker projects/dart/features
 
 courselets_docker:
-	behave -D instance_url=${STAGE_URL} -D browser=phantomjs -D docker projects/courselets/features
+	behave -D instance_url=${STAGE_URL} -D docker projects/courselets/features
 
 
 dart_firefox_local:

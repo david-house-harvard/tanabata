@@ -1,4 +1,4 @@
 behave
 selenium
-requests[security]
+requests
 webdriver-manager
