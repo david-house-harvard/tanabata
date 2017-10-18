@@ -5,7 +5,7 @@ Feature: Team page
     Given an anonymous user
     When I go to main page
     Then I open team page
-    Than I can see all cards have names
+      And I can see all cards have names
     Then I can see Vpal team section
       And I can see logo VPAL
       And I can see aang foto
