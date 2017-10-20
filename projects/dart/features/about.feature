@@ -3,7 +3,9 @@ Feature: About page
   Scenario: Access about page
 
     Given an anonymous user
-    When I open about page
+    When I go to main page
+    Then I open about page
+    Then I can see Harvard-X background
     Then I can see Screenshot Highlighting Canvas Import image
     Then I can see Harvard YouTube ScreenShot
     Then I can see DART Ecosystem image

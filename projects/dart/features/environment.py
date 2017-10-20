@@ -51,7 +51,7 @@ def before_scenario(context, scenario):
         print("Browser you entered:", browser, "is invalid value")
 
     context.browser.implicitly_wait(WAIT)
-    context.browser.maximize_window()
+    context.browser.set_window_size(1920, 1080)
 
     context.base_url = context.config.userdata.get('instance_url')
 
