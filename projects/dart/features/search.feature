@@ -20,8 +20,8 @@ Feature: Search
   Scenario: Comparison search request with to content
 
     Given a logged in user
-    When I open the main page
-    Then I can do search on the main page
+    When I open main page
+    Then I can do search on main page
     Then I can compare term search result with content
       And I can count all search results with items in sidebar
 

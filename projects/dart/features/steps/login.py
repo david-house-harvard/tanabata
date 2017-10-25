@@ -9,7 +9,7 @@ def step_impl(context):
 @given('an logged in user')
 def step_impl(context):
     br = context.browser
-    br.get(context.base_url+'/users/login/')
+    br.get(context.base_url+'users/login/')
     br.find_element_by_name('username').send_keys('dummy')
     br.find_element_by_css_selector('[type="submit"]').click()
 
