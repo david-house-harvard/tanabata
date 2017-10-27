@@ -45,7 +45,7 @@ Feature: Search
     Then I can see search results
       And I can see firsts top courses
     When I choose search Harvard Only
-    Then I click on a search again button
+    Then I can do search again on search page
     Then I can see firsts top courses include filtering Harvard Only
     Then I can see image with name courses and organization name in this top/hot courses
 
@@ -62,7 +62,6 @@ Feature: Search
       And I can click on youtube channel link in one results
       And I can click on a preview video button
       And I can click link on edx course link
-      And I can click link on created by is
 
 
   Scenario: Responsive
