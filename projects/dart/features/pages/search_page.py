@@ -111,3 +111,12 @@ class SearchPage(CommonPage):
         assert self.browser.find_element_by_css_selector('.list-group-item.list-group-item-info').is_displayed()
         assert self.browser.find_element_by_css_selector('.hot-course_mobile-trigger').is_displayed()
 
+    def null_results_search(self):
+        self.browser.find_element_by_name('query').send_keys('qazxswedc')
+        self.browser.find_element_by_css_selector('.btn').click()
+
+    def see_no_results_text(self):
+        query_text = self.browser.find_element_by_name('query').get_attribute('value')
+        expected_result = 'We did not find any videos related to {}.'.format(query_text)
+        result = self.browser.find_element_by_css_selector('#videos>h4').text
+        assert result == expected_result

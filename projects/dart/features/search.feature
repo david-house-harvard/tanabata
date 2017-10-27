@@ -45,7 +45,7 @@ Feature: Search
     Then I can see search results
       And I can see firsts top courses
     When I choose search Harvard Only
-      And I click on a search again button
+    Then I click on a search again button
     Then I can see firsts top courses include filtering Harvard Only
     Then I can see image with name courses and organization name in this top/hot courses
 
@@ -76,7 +76,8 @@ Feature: Search
 
   Scenario: not found page
 
-    Given I am on a search page
+    Given an logged in user
+    When I open main page
     When I have not to do the right `search again`
     Then I can see `We did not find any videos related to` page
     Then I can click on an Anonymous survey link

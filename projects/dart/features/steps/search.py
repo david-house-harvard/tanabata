@@ -106,3 +106,17 @@ def step_impl(context):
 @then('I can see right location blocks on a page')
 def step_impl(context):
     SearchPage(context).check_mobile_elements_visible()
+
+
+@when('I have not to do the right `search again`')
+def step_impl(context):
+    SearchPage(context).null_results_search()
+
+
+@then('I can see `We did not find any videos related to` page')
+def step_impl(context):
+    SearchPage(context).see_no_results_text()
+
+@then('I can click on an Anonymous survey link')
+def step_impl(context):
+    SearchPage(context).check_link('error-link')
