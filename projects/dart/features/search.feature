@@ -19,7 +19,7 @@ Feature: Search
 
   Scenario: Comparison search request with to content
 
-    Given a logged in user
+    Given an logged in user
     When I open main page
     Then I can do search on main page
     Then I can compare term search result with content
@@ -28,9 +28,11 @@ Feature: Search
 
   Scenario: Search on the search page with filtering
 
-    Given I am on a search page
+    Given an logged in user
+    When I open main page
+    Then I can do search on main page
     When I can do search again on search page
-      And I can click on filtering
+    Then I can click on filtering
     Then I can see my search request with Search HarvardX Only filtering
       And I can count filtering search results with items in sidebar
 
@@ -40,10 +42,10 @@ Feature: Search
     Given an logged in user
     When I open main page
     Then I can do search on main page
-    Then I can see search results on a search page
+    Then I can see search results
       And I can see firsts top courses
     When I choose search Harvard Only
-      And click on a search again button
+      And I click on a search again button
     Then I can see firsts top courses include filtering Harvard Only
     Then I can see image with name courses and organization name in this top/hot courses
 
@@ -53,8 +55,8 @@ Feature: Search
     Given an logged in user
     When I open main page
     Then I can do search on main page
-    Then I can see search results on a search page
-      And see filtering lists with count search result
+    Then I can see search results
+      And I see filtering lists with count search result
     Then I can check all lists items and count them with tabulated results
     Then I can check one results which have name, icons
       And I can click on youtube channel link in one results
@@ -65,7 +67,9 @@ Feature: Search
 
   Scenario: Responsive
 
-    Given I am on a search page
+    Given an logged in user
+    When I open main page
+    Then I can do search on main page
     When I resize my windows
     Then I can see right location blocks on a page
 
