@@ -99,9 +99,7 @@ To run pre-builded image with a latest code run next:
 Issues
 ---
 
-Currently we can't run tests started in the docker container against the local deployment.
-This is happened due to network isolation - docker container lived in an isolated network so we can't say to test against localhost:8001.
-This can be fixed with `network-mode=host` but it will brokes linking to phantomjs container (or any other container linked to tanabata container).
+To run tests against local installation run your development server on 0.0.0.0 IP.
 
 
 
@@ -110,8 +108,7 @@ Project aims/TODO's
 ===
 
 * Use Paver to run different types of tests
-* Run project in Docker agains locahost
 * Integrate Load/Performance, E2E tests
-* Add reporting reature
+* Add reporting feature
 * Add UI to be able to add/edit scenarios for BA's/PM's
-* Add UI to run scenarious (using Jupiter)
+* Add UI to run scenarios (using Jupiter)

@@ -5,8 +5,5 @@ services:
     image: maxsocl/tanabata:latest
     command: sh run.sh
     env_file: ./envs/local.env
-    links:
-      - phantomjs
-  phantomjs:
-    image: wernight/phantomjs:latest
-    command: phantomjs --wd
+    volumes:
+      - /dev/shm:/dev/shm
