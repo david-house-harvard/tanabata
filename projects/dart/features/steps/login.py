@@ -1,4 +1,4 @@
-from behave import given,then
+from behave import given, then
 
 
 @given('an anonymous user')

@@ -1,39 +1,48 @@
 import re
 
 import requests
+
 from .common_page import CommonPage
 from .main_page import MainPage
 
 
 class SearchPage(CommonPage):
+    """
+       Search page tests implementation
+
+        Extended description of functions.
+
+        i_see_results: looks for `query=` in url
+        compare_result: compare result in query with first result in search page
+        count_results:
+
+    """
+    icons_in_tab = 7
 
     def i_see_results(self):
-        url = 'search/search?query=' in self.browser.current_url
-        assert url
+        assert 'search/search?query=' in self.browser.current_url
         assert self.browser.find_element_by_name('query')
 
     def compare_result(self):
-        assert self.browser.find_elements_by_css_selector('tbody>tr')
+        assert MainPage(self).find_all('search_result')
         result_list = self.browser.find_elements_by_css_selector('tbody>tr>td>.match:first-child')
         query = self.browser.find_element_by_name('query').get_attribute('value').lower()
         counter = 0
-        print(len(result_list))
         for item in result_list:
             result = True if query in item.text.lower() else False
             counter += 1
             if not result:
-                print(counter, item.text.lower())
-                assert False
+                raise Exception(counter, item.text.lower())
 
     def count_results(self):
-        active_tab = self.browser.find_element_by_css_selector('.filter-list__item.active h4').text
+        active_tab = self.browser.find_element_by_css_selector('.filter-list__item.active h4')
         number = self.browser.find_element_by_css_selector('.container-fluid.results>p>.text-danger').text
         result_list = self.browser.find_elements_by_css_selector('.preview-button')
         assert int(number) == len(result_list)
 
     def click_on_filter(self):
         self.browser.find_element_by_css_selector('#harvardx-checkbox').click()
-        self.browser.find_element_by_css_selector('#result_search').click()
+        SearchPage(self).do_search_again()
 
     def do_search_again(self):
         self.browser.find_element_by_css_selector('#result_search').click()
@@ -44,12 +53,11 @@ class SearchPage(CommonPage):
         for item in created_by:
             text = 'harvardx'
             result = item.text.lower()
-            if text not in result and result:
+            if result and text not in result:
                 raise Exception(counter, text, result)
 
     def see_top_courses(self):
-        hot_courses = self.browser.find_elements_by_css_selector('.hot-course__item')
-        assert len(hot_courses) > 0
+        assert len(self.browser.find_elements_by_css_selector('.hot-course__item')) > 0
 
     def see_filtered_top_cards(self):
         created_by = self.browser.find_elements_by_css_selector('.list-group-item__source')
@@ -57,10 +65,10 @@ class SearchPage(CommonPage):
         for item in created_by:
             text = 'harvardx'
             result = item.text.lower()
-            if text not in result and result:
+            if result and text not in result:
                 raise Exception(counter, text, result)
 
-    def top_cards_have_all(self):
+    def top_cards_have_all_fields(self):
         cards_num = len(MainPage(self).find_all('hot_course'))
         img_num = len(MainPage(self).find_all('hot_course_image'))
         creator_num = len(MainPage(self).find_all('hot_course_creator'))
@@ -70,9 +78,8 @@ class SearchPage(CommonPage):
         assert cards_num == title_num
 
     def i_see_filters_and_numbers(self):
-        pass
-        # assert len(self.browser.find_element_by_css_selector('.container-fluid.results>p>.text-danger')) > 0
-        # assert len(MainPage(self).find_all('filter_tab')) > 0
+        assert len(self.browser.find_elements_by_css_selector('.container-fluid.results>p>.text-danger')) > 0
+        assert len(MainPage(self).find_all('filter_tab')) > 0
 
     def calc_filtered(self):
         results = MainPage(self).find_all('search_result')
@@ -87,9 +94,9 @@ class SearchPage(CommonPage):
     def check_result_content(self):
         result = MainPage(self).find('search_result')
         icons_count = len(result.find_elements_by_css_selector('.fa'))
-        icons_in_tab = 7
+
         titles_count = len(result.find_elements_by_css_selector('h4>a'))
-        assert icons_count == icons_in_tab
+        assert icons_count == SearchPage.icons_in_tab
         assert titles_count >= 1
 
     def check_link(self, link_name):

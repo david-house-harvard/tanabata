@@ -60,7 +60,7 @@ def step_impl(context):
 
 @then('I can see image with name courses and organization name in this top/hot courses')
 def step_impl(context):
-    SearchPage(context).see_filtered_top_cards()
+    SearchPage(context).top_cards_have_all_fields()
 
 
 @then('I see filtering lists with count search result')

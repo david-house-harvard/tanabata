@@ -22,6 +22,3 @@ class MainPage(CommonPage):
 
     def go_about(self):
         self.browser.find_element_by_css_selector('[title="About the DART platform"]').click()
-
-    def compare_result(self):
-        print(self.browser.find_element_by_css_selector('tbody>tr'))
