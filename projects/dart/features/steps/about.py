@@ -3,11 +3,6 @@ from behave import when, then
 from pages import MainPage, AboutPage
 
 
-@when('I go to main page')
-def step_impl(context):
-    context.browser.get(context.base_url)
-
-
 @then('I open about page')
 def step_impl(context):
     MainPage(context).go_about()
