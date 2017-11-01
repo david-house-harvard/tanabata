@@ -5,7 +5,7 @@ Feature: Collections
 
       Given an logged in user
         And I opened Browse page
-      When I open banner edx-collection #use /browse/collections/d09a4ffd-0f14-4016-9747-5f84655e9659 "saving schools mini-course 1"
+      When I open banner edx-collection
       Then I can see harvardX Collections name
       Then I can see and click all links in breadcrumbs
       Then I can see card block
