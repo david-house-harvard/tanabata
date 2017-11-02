@@ -18,12 +18,8 @@ def step_impl(context):
     SearchPage(context).count_results()
 
 
-@then('I can do search again on search page')
-def step_impl(context):
-    SearchPage(context).do_search_again()
-
-
 @when('I can do search again on search page')
+@then('I can do search again on search page')
 def step_impl(context):
     SearchPage(context).do_search_again()
 
@@ -80,7 +76,7 @@ def step_impl(context):
 
 @then('I can click on youtube channel link in one results')
 def step_impl(context):
-    SearchPage(context).check_link('creator')
+    SearchPage(context).check_link('course-link')
 
 
 @then('I can click on a preview video button')
@@ -100,7 +96,7 @@ def step_impl(context):
 
 @when('I resize my windows')
 def step_impl(context):
-    SearchPage(context).resize()
+    SearchPage(context).resize(480, 320)
 
 
 @then('I can see right location blocks on a page')

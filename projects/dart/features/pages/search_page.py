@@ -42,7 +42,6 @@ class SearchPage(CommonPage):
 
     def click_on_filter(self):
         self.browser.find_element_by_css_selector('#harvardx-checkbox').click()
-        SearchPage(self).do_search_again()
 
     def do_search_again(self):
         self.browser.find_element_by_css_selector('#result_search').click()
@@ -111,8 +110,8 @@ class SearchPage(CommonPage):
         el = MainPage(self).find('preview_button')
         el.click()
 
-    def resize(self):
-        self.browser.set_window_size(480,320)
+    def resize(self, width, height):
+        self.browser.set_window_size(width, height)
 
     def check_mobile_elements_visible(self):
         assert self.browser.find_element_by_css_selector('.list-group-item.list-group-item-info').is_displayed()

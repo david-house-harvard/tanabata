@@ -32,8 +32,8 @@ Feature: Search
     When I open main page
     Then I can do search on main page
     When I can do search again on search page
-    Then I can click on filtering
-    Then I can see my search request with Search HarvardX Only filtering
+      And I can click on filtering
+    When I can see my search request with Search HarvardX Only filtering
       And I can count filtering search results with items in sidebar
 
 
@@ -62,6 +62,7 @@ Feature: Search
       And I can click on youtube channel link in one results
       And I can click on a preview video button
       And I can click link on edx course link
+      And I can click link on created by is
 
 
   Scenario: Responsive
