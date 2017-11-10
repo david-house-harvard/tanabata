@@ -6,6 +6,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 BEHAVE_DEBUG_ON_ERROR = True
 WAIT = os.getenv('WAIT', 1)
 
+
 def before_scenario(context, scenario):
     if 'browser' in context.config.userdata.keys():
         if context.config.userdata['browser'] is None:
@@ -53,7 +54,11 @@ def after_scenario(context, scenario):
 
     context.browser.quit()
 
+
 def after_step(context, step):
     if BEHAVE_DEBUG_ON_ERROR and step.status == "failed":
-        import pdb
-        pdb.post_mortem(step.exc_traceback)
+        import ipdb
+        ipdb.post_mortem(step.exc_traceback)
+
+
+

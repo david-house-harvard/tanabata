@@ -1,10 +1,12 @@
 import os
-
 from behave import given, when, then
 
 
-USERNAME = os.getenv('USERNAME', 'myname')
-PASSWORD = os.getenv('PASSWORD', 'mypassword')
+#USERNAME = os.getenv('USERNAME', 'myname')
+#PASSWORD = os.getenv('PASSWORD', 'mypassword')
+
+USERNAME = 'denis.kolesnik'
+PASSWORD = 'kolesnik'
 
 
 @given('an anonymous user')
