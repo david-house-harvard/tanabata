@@ -8,8 +8,14 @@ from webdriver_manager.microsoft import EdgeDriverManager, IEDriverManager
 from webdriver_manager.phantomjs import PhantomJsDriverManager
 
 
-BEHAVE_DEBUG_ON_ERROR = True
+BEHAVE_DEBUG_ON_ERROR = os.getenv('BEHAVE_PDB', '')
 WAIT = os.getenv('WAIT', 1)
+
+
+def before_all(context):
+    context.credentials = {
+        'login': 'moonmoon',
+    }
 
 
 def before_scenario(context, scenario):

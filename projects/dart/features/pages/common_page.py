@@ -8,6 +8,7 @@ class CommonPage:
     """
     def __init__(self, context):
         self.browser = context.browser
+        self.base_url = context.base_url
 
     def find(self, attr_name):
         el = self.browser.find_element_by_css_selector(
