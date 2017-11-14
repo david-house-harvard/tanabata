@@ -6,3 +6,5 @@ screenshots/
 __pycache__
 *.pyc
 envs/local.env
+.idea/
+.python-version
